@@ -1,19 +1,14 @@
-const http = require("http")
+const express = require("express")
+const app = express()
 const port = 3000
 
-const server = http.createServer(function(req,res){
-    res.write('Hello World')
-    res.end()
-})
-
-server.listen(port, function(error){
-    if (error){
-        console.log("Errorr", error)
-    }
-    else{
-        console.log("Listening "+ port)
-    }
-})
+app.get('/', (req, res) => {
+    res.send('Hello World!')
+  })
+  
+  app.listen(port, () => {
+    console.log(`Listening on port ${port}`)
+  })
 
 
 console.log("Hello World");
